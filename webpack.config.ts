@@ -1,5 +1,4 @@
 import {Configuration} from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
 import path from 'path';
 
 const config: Configuration = {
@@ -14,22 +13,11 @@ const config: Configuration = {
   },
   module: {
     rules: [{
-      test: /\.css$/,
-      use: [
-        {loader: 'style-loader'},
-        {loader: 'css-loader'}
-      ]
-    }, {
       test: /\.ts$/,
       loader: 'ts-loader',
       exclude: /node_modules/
     }]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: './src/index.html'
-    }) as any
-  ]
+  }
 }
 
 export default config;
